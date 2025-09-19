@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Página Educativa — Angatuba-SP</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <img src="imagens/logo.png" alt="Logo do projeto Aprender em Angatuba" class="logo">
+    <h1>Aprender em Angatuba</h1>
+    <p class="lead">Conteúdos educativos interativos para crianças e professores</p>
+  </header>
+
+  <main>
+    <!-- Escolha da matéria -->
+    <section id="escolha" class="card">
+      <h2>Escolha sua matéria</h2>
+      <div class="btn-container">
+        <button class="btn" data-action="mostrar-materia" data-target="portugues">Português</button>
+        <button class="btn btn-secondary" data-action="mostrar-materia" data-target="ciencias">Ciências</button>
+      </div>
+    </section>
+
+    <!-- Seção Português -->
+    <section id="portugues" class="card materia oculto">
+      <h2>Português</h2>
+      <div class="subaulas">
+        <button class="btn" data-action="mostrar-subaula" data-target="substantivo">Substantivo</button>
+        <button class="btn" data-action="mostrar-subaula" data-target="adjetivo">Adjetivo</button>
+        <button class="btn" data-action="mostrar-subaula" data-target="artigo">Artigo</button>
+        <button class="btn" data-action="mostrar-subaula" data-target="numeral">Numeral</button>
+      </div>
+      <button class="btn voltar" data-action="voltar-escolha">← Voltar para escolha</button>
+    </section>
+
+    <!-- Seção Ciências -->
+    <section id="ciencias" class="card materia oculto">
+      <h2>Ciências</h2>
+      <div class="subaulas">
+        <button class="btn" data-action="mostrar-subaula" data-target="fotossintese">Fotossíntese</button>
+        <button class="btn" data-action="mostrar-subaula" data-target="ecossistemas">Ecossistemas</button>
+        <button class="btn" data-action="mostrar-subaula" data-target="cadeiaalimentar">Cadeia Alimentar</button>
+        <button class="btn" data-action="mostrar-subaula" data-target="rotacaoTranslacao">Rotação e Translação</button>
+      </div>
+      <button class="btn voltar" data-action="voltar-escolha">← Voltar para escolha</button>
+    </section>
+
+    <!-- Seção Subaula -->
+    <section id="subaula" class="card materia oculto">
+      <h2 id="subaula-title"></h2>
+      <div class="video-container">
+        <iframe class="responsive-video" id="subaula-video" src="" title="Player de vídeo para a aula" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Quiz -->
+      <div class="quiz">
+        <h3>Quiz</h3>
+        <div id="questions"></div>
+        <div class="quiz-buttons">
+          <button id="submitQuiz" class="btn">Enviar Respostas</button>
+          <button id="resetQuiz" class="btn btn-secondary">Reiniciar</button>
+        </div>
+        <div id="quizResult" class="quiz-result" aria-live="polite"></div>
+      </div>
+
+      <button class="btn voltar" data-action="voltar-materia">← Voltar para a matéria</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Projeto Educativo — Comunidades Rurais de Angatuba-SP</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

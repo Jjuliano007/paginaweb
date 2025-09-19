@@ -1,0 +1,165 @@
+/* Importa a nova fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+/* ================================================= */
+/* ============== NOVAS CORES VIBRANTES ============ */
+/* ================================================= */
+:root {
+  --cor-primaria: #00BFA6;      /* Verde-água (Teal) vibrante */
+  --cor-secundaria: #FFAB00;    /* Âmbar (Amarelo-laranja) quente */
+  --cor-texto-principal: #263238; /* Cinza escuro, mais suave que preto */
+  --cor-texto-claro: #FFFFFF;
+  --fundo-card: rgba(255, 255, 255, 0.95); /* Um pouco mais opaco para melhor leitura */
+  --cor-sucesso: #4CAF50;
+  --cor-erro: #F44336;
+  --raio-borda: 12px;
+  --sombra-padrao: 0 4px 8px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08); /* Sombra mais suave */
+  --fonte-principal: 'Montserrat', sans-serif;
+}
+
+/* Reset básico */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--fonte-principal);
+  background: url("imagens/fundo.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: var(--cor-texto-principal);
+  line-height: 1.6;
+}
+
+main { flex: 1; }
+
+/* Cabeçalho */
+.site-header {
+  position: relative;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--cor-texto-principal);
+  padding: 25px 20px;
+  border-radius: 0 0 var(--raio-borda) var(--raio-borda);
+  box-shadow: var(--sombra-padrao);
+  text-align: center;
+  border-bottom: 4px solid var(--cor-primaria); /* Detalhe de cor */
+}
+
+.site-header h1 {
+  font-family: var(--fonte-titulo, 'Montserrat');
+  font-weight: 900; /* Deixa o título mais forte */
+  font-size: clamp(1.6rem, 5vw, 2rem); /* Tipografia fluida */
+  margin-bottom: 4px;
+}
+
+.lead { font-size: 1rem; }
+
+.logo {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 280px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Classe genérica para painéis/cards */
+.card {
+  padding: 25px;
+  background: var(--fundo-card);
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra-padrao);
+  max-width: 900px;
+  margin: 25px auto;
+  border: 1px solid #E0E0E0; /* Borda sutil */
+}
+
+/* Estilos específicos das seções */
+#escolha {
+  text-align: center;
+  margin-top: 80px;
+  max-width: 600px;
+}
+
+/* Botões */
+.btn-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+.btn {
+  background: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 50px; /* Botões mais modernos, em pílula */
+  font-weight: 700; /* Bold */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  font-family: var(--fonte-principal);
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  filter: brightness(1.1);
+}
+.btn:active {
+  transform: translateY(0px);
+}
+.btn-secondary { background: transparent; border: 2px solid var(--cor-primaria); color: var(--cor-primaria); }
+
+.voltar {
+  margin-top: 20px;
+  background: var(--cor-secundaria);
+  color: var(--cor-texto-principal);
+}
+.voltar:hover { background: #FFC107; }
+
+.oculto { display: none; }
+
+/* Vídeo responsivo */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Proporção 16:9 */
+  margin: 12px 0;
+}
+.responsive-video {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  border-radius: 10px;
+}
+
+/* Quiz */
+.quiz { margin-top: 20px; padding: 15px; background: #F4F7F9; border-radius: 10px; }
+.question { margin-bottom: 12px; font-weight: 700; }
+.options { margin-top: 6px; }
+.option { display: block; margin-bottom: 8px; padding: 10px; border-radius: 8px; cursor: pointer; transition: background-color 0.2s; background: #fff; border: 1px solid #ddd; }
+.option:hover { background-color: #E8F5E9; border-color: var(--cor-sucesso); }
+
+/* Classes de feedback do quiz */
+.option.correta { background-color: #E8F5E9; color: #1B5E20; border-color: var(--cor-sucesso); }
+.option.incorreta { background-color: #FFEBEE; color: #B71C1C; border-color: var(--cor-erro); }
+
+.quiz-buttons { margin-top: 10px; display: flex; gap: 10px; }
+.quiz-result { margin-top: 12px; padding: 10px; background: #E8F5E9; border-radius: 8px; }
+
+/* Rodapé */
+.site-footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  border-top: 1px solid #E0E0E0;
+  background: #FFFFFF;
+}
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 768px) {
+  .site-header { padding-left: 15px; padding-right: 15px; }
+  .logo { display: none; /* Esconde a logo em telas menores para dar espaço */ }
+  .btn-container, .subaulas { flex-direction: column; gap: 15px; align-items: stretch; }
+  .card { margin-left: 15px; margin-right: 15px; width: auto; }
+}
+
+@media (max-width: 500px) {
+  .site-header h1 { font-size: 1.5rem; }
+  .lead { font-size: 0.9rem; }
+}
